@@ -33,12 +33,12 @@ def read_file():
         for line in cook_file:
             ingridient_list = []
             dish_name = line.strip()
-            counter_ingridients = int(cook_file.readline().strip())
-            for i in range(counter_ingridients):
-                ingridient = cook_file.readline().strip()
-                ingridient_dict = {'ingridient_name': ingridient.split(' | ')[0],
-                                   'quantity': ingridient.split(' | ')[1],
-                                   'measure': ingridient.split(' | ')[-1]}
+            counter_ingredients = int(cook_file.readline().strip())
+            for i in range(counter_ingredients):
+                ingredient = cook_file.readline().strip()
+                ingridient_dict = {'ingridient_name': ingredient.split(' | ')[0],
+                                   'quantity': ingredient.split(' | ')[1],
+                                   'measure': ingredient.split(' | ')[-1]}
                 ingridient_list.append(ingridient_dict)
             cook_file.readline()
             cook_book[dish_name] = ingridient_list
@@ -63,7 +63,7 @@ def get_shop_list_by_dishes(dishes, person_count):
                         dish_dict[ingridient_for_order['ingridient_name']] = {'measure':ingridient_for_order['measure'],
                                                                               'quantity' : ingridient_for_order['quantity']}
 
-    return(dish_dict)
+    return dish_dict
 
 
 print(read_file())
